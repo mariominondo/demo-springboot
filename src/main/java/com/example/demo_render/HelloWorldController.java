@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
+    private final HelloWorldService helloWorldService;
+
+    public HelloWorldController(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
+
     @GetMapping("/hello")
     public String hello(){
-        return "Hello from Spring Boot on Render";
+        return helloWorldService.getMessage();
     }
 }
