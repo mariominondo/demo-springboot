@@ -1,6 +1,6 @@
-# Spring Boot Learning Path - To-Do List
+# Bitcoin Investment Calculator Learning Path - To-Do List
 
-This document tracks our progress in learning Spring Boot and building a web service.
+This document tracks our progress in building a Bitcoin investment calculator with Spring Boot.
 
 ## ✅ Completed Tasks
 
@@ -10,12 +10,15 @@ This document tracks our progress in learning Spring Boot and building a web ser
 * **CI/CD Pipeline:** Set up a GitHub Actions workflow to automatically deploy to Render.
 * **Test with JUnit:** Wrote a JUnit test to verify the "Hello World" endpoint.
 * **Troubleshooting:** Fixed build errors related to Docker images, Maven, and Java versions.
-* **Run Locally:** Test the application on your local machine.
+* **Run Locally:** Tested the application on your local machine.
+* **Refactor to a Service Layer:** Separated business logic from the controller.
+* **Refactor to a New Project Concept:** Switched to building a Bitcoin calculator.
 
 ## 🚀 Next Up
 
-* **Refactor to a Service Layer:** Separate business logic from the controller.
-* **Implement CRUD Operations:** Connect to a database and learn to Create, Read, Update, and Delete data.
-* **Use Data Transfer Objects (DTOs):** Learn how to define data models for your API.
-* **Add OpenAPI/Swagger Documentation:** Document your API for other developers.
-* **Implement Security:** Add user authentication and authorization using Spring Security.
+* **API Integration:** Make an HTTP request to a third-party service to get live Bitcoin price data.
+* **Data Models:** Create a `BitcoinPrice` data model to hold the data from the API.
+* **Calculation Logic:** Implement the logic to calculate the future value based on user input and price predictions.
+* **New API Endpoint:** Create a new API endpoint to accept the user's input and return the calculation result.
+* **Unit & Integration Tests:** Write tests for the new service and controller logic.
+* **Update CI/CD:** Ensure the new code and tests are running correctly on Render.
