@@ -13,10 +13,10 @@ This document tracks our progress in building a Bitcoin investment calculator wi
 * **Run Locally:** Tested the application on your local machine.
 * **Refactor to a Service Layer:** Separated business logic from the controller.
 * **Refactor to a New Project Concept:** Switched to building a Bitcoin calculator.
+* **API Integration:** Made an HTTP request to a third-party service to get live Bitcoin price data.
 
 ## 🚀 Next Up
 
-* **API Integration:** Make an HTTP request to a third-party service to get live Bitcoin price data.
 * **Data Models:** Create a `BitcoinPrice` data model to hold the data from the API.
 * **Calculation Logic:** Implement the logic to calculate the future value based on user input and price predictions.
 * **New API Endpoint:** Create a new API endpoint to accept the user's input and return the calculation result.
