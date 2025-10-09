@@ -18,7 +18,7 @@ public class CalculatorController {
     public String calculate(@RequestParam long satoshis, @RequestParam double prediction) {
         double currentPrice = bitcoinService.getBitcoinPriceInUsd();
         double futurePrice = currentPrice * (1 + prediction);
-        double bitcoinAmount = satoshis / 100_100_00.0;
+        double bitcoinAmount = satoshis / 100_000_000.0;
         double futureValue = bitcoinAmount * futurePrice;
 
         return String.format("Based on a price prediction of %.2f%%, your %d satoshis will be worth $%.2f", prediction * 100, satoshis, futureValue);

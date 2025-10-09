@@ -1,11 +1,9 @@
 package com.example.demo_render.api.service;
 
-
-import com.example.demo_render.api.model.BitcoinPrice;
 import com.example.demo_render.api.model.BitcoinPriceResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-
+import reactor.core.publisher.Mono;
 
 @Service
 public class BitcoinService {
@@ -21,8 +19,8 @@ public class BitcoinService {
                 .uri("/simple/price?ids=bitcoin&vs_currencies=usd")
                 .retrieve()
                 .bodyToMono(BitcoinPriceResponse.class)
-                .block(); // block() to get synchronous response
+                .block();
 
-        return response.getBitcoin().get("bitcoin").getUsdPrice();
+        return response.getBitcoin().get("bitcoin");
     }
 }
