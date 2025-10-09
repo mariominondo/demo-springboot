@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class BitcoinPrice {
 
     @JsonProperty("usd")
-    private double usdPrice;
+    private double usd;
 
     // Getters and Setters
     public double getUsdPrice() {
-        return usdPrice;
+        return usd;
     }
 
     public void setUsdPrice(double usdPrice) {
-        this.usdPrice = usdPrice;
+        this.usd = usdPrice;
     }
 }

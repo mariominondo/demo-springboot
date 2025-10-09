@@ -1,9 +1,8 @@
 package com.example.demo_render.api.service;
 
-import com.example.demo_render.api.model.BitcoinPriceResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import java.util.Map;
 
 @Service
 public class BitcoinService {
@@ -15,12 +14,25 @@ public class BitcoinService {
     }
 
     public double getBitcoinPriceInUsd() {
-        BitcoinPriceResponse response = this.webClient.get()
+        Map response = this.webClient.get()
                 .uri("/simple/price?ids=bitcoin&vs_currencies=usd")
                 .retrieve()
-                .bodyToMono(BitcoinPriceResponse.class)
+                .bodyToMono(Map.class)
                 .block();
 
-        return response.getBitcoin().get("bitcoin");
+        if (response != null && response.containsKey("bitcoin")) {
+            Map<String, Object> bitcoinData = (Map<String, Object>) response.get("bitcoin");
+            Object priceObj = bitcoinData.get("usd");
+
+            if (priceObj instanceof Integer) {
+                return ((Integer) priceObj).doubleValue();
+            } else if (priceObj instanceof Double) {
+                return (Double) priceObj;
+            } else if (priceObj instanceof Number) {
+                return ((Number) priceObj).doubleValue();
+            }
+        }
+
+        return 0.0;
     }
 }
